@@ -11,7 +11,7 @@ app.get('/', (req, res) => {
 
 app.get('/bloggar', (req, res) => {
     // Insert code here for viewing all of the blogs (homepage)
-    res.render("partials/footer.ejs");
+    res.render("index.ejs");
 });
 
 app.get('/blogg/:id', (req, res) => {
