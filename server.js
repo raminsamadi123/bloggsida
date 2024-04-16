@@ -16,10 +16,12 @@ app.get('/bloggar', (req, res) => {
 
 app.get('/blogg/:id', (req, res) => {
     // Insert code here for the single blogs
+    res.render("singleBlog.ejs");
 });
 
 app.get('/bloggar/inlogg', (req, res) => {
     // Insert code here for the blog login page
+    res.render("login.ejs");
 });
 
 app.get('/bloggar/kategori/:category', (req, res) => {
@@ -28,10 +30,12 @@ app.get('/bloggar/kategori/:category', (req, res) => {
 
 app.get('/blogg/:id/redigera', (req, res) => {
     // Insert code here for editing an existing blog
+    res.render("editBlog.ejs");
 });
 
 app.get('/bloggar/skapa', (req, res) => {
     // Insert code here for creating new blog
+    res.render("createBlog.ejs");
 });
 
 app.post('/bloggar', (req, res) => {

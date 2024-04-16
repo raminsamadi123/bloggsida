@@ -23,6 +23,206 @@ body {
     align-items: flex-end;
 }
 
+#card-for-create-blog, #card-for-edit-blog {
+    padding: 20px;
+    color: #FFFFFF;
+}
+
+.author-create-blog button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    width: 100px;
+    font-size: 100%;
+    border: 1px solid #5F6368;
+    border-radius: 100vw;
+    cursor: pointer;
+    color: #FFFFFF;
+    background-color: #303134;
+}
+
+.author-save-blog button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    width: 50px;
+    font-size: 30px;
+    border: 1px solid #5F6368;
+    border-radius: 100vw;
+    cursor: pointer;
+    color: #FFFFFF;
+    background-color: #303134;
+}
+
+.blog-functions-footer button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border: 1px solid #5F6368;
+    border-radius: 100vw;
+    cursor: pointer;
+    color: #FFFFFF;
+    background-color: #303134;
+}
+
+.header-create-blog, .header-edit-blog {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.create-blog-form, .edit-blog-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 100%;
+}
+
+.create-blog-form input, .edit-blog-form input {
+    height: 30px;
+    border-radius: 100vw;
+    background: none;
+    padding: 10px;
+    color: #FFFFFF;
+    font-size: 18px;
+    border: 1px solid #5F6368;
+}
+
+.create-blog-form input:focus, textarea:focus, .edit-blog-form input:focus {
+    outline: none;
+}
+
+.create-blog-form textarea, .edit-blog-form textarea {
+    border-radius: 10px;
+    background: none;
+    padding: 10px;
+    color: #FFFFFF;
+    border-radius: 20px;
+    font-size: 18px;
+    border: 1px solid #5F6368;
+    height: 400px;
+    margin-bottom: 20px;
+    resize: none;
+}
+
+#card-for-blog {
+    padding: 20px;
+    color: #FFFFFF;
+}
+
+#card-for-blog button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border: 1px solid #5F6368;
+    border-radius: 100vw;
+    cursor: pointer;
+    color: #FFFFFF;
+    background-color: #303134;
+}
+
+.blog-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.blog-functions {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+}
+
+.blog-functions-footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    gap: 40px;
+}
+
+.username {
+    display: flex;
+    width: 90%;
+    margin-bottom: 40px;
+}
+
+.password {
+    display: flex;
+    width: 90%;
+}
+
+.password-input, .username-input {
+    display: flex;
+    width: 100%;
+}
+
+.password-input input, .username-input input {
+    width: 100%;
+    height: 42px;
+    border: 1px solid #5F6368;
+    background: none;
+    border-right: none;
+    padding: 0px;
+    color: white;
+    font-size: 18px;
+    border-radius: 100vw;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    padding: 10px;
+}
+
+.password-input input:focus, .username-input input:focus {
+    outline: none;
+}
+
+.username-icon, .password-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FFFFFF;
+    border: 1px solid #5F6368;
+    width: 50px;
+    border-left: none;
+    border-top-right-radius: 100vw;
+    border-bottom-right-radius: 100vw;
+}
+
+.login {
+    margin-top: 40px;
+    width: 90%;
+}
+
+.login button {
+    width: 100%;
+    height: 42px;
+    border: 1px solid #5F6368;
+    border-radius: 100vw;
+    background-color: #303134;
+    color: #FFFFFF;
+    font-size: 18px;
+    cursor: pointer;
+}
+
 .card {
     display: flex;
     flex-direction: column;
@@ -33,11 +233,24 @@ body {
     border-radius: 20px;
 }
 
+.error {
+    display: flex;
+    justify-content: center;
+    color: #f38ba8;
+}
 
 /* Media query for mobile devices */
 @media screen and (max-width: 768px) {
     .card {
         height: 550px; /* Height for mobile devices */
+    }
+
+    .create-blog-form textarea {
+        height: 150px;
+    }
+
+    .edit-blog-form textarea {
+        height: 150px;
     }
 }
 
@@ -225,7 +438,7 @@ body {
     border-top-left-radius: 20px; /* Justerat från 100vw för mobil */
     border-bottom-left-radius: 20px; /* Justerat från 100vw för mobil */
     align-items: center;
-    color: #FFFFFF;
+    color: rgba(255, 255, 255, 0.5)
 }
 
 .search-button button {
@@ -257,6 +470,12 @@ body {
     display: flex;
     flex-direction: row;
     gap: 10px; /* Justerat gap för mobil */
+}
+
+.blog-text {
+    font-size: 18px; /* Justerat fontstorlek för mobil */
+    height: 100%;
+    overflow-y: scroll;
 }
 
 footer {

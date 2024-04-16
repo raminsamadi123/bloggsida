@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skapa</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="content">
+        <div class="card" id="card-for-create-blog">
+            <div class="header-create-blog">
+                <div class="title-create-blog">
+                    <h1>Skapa Blogg</h1>
+                </div>
+                <div class="author-create-blog">
+                    <button type="submit">Publicera</button> <!-- Gör en onclick funktion som skickar bloggen till databasen -->
+                </div>
+            </div>
+            <form class="create-blog-form" action="" method="post" id="blog-form">
+                <input type="text" name="title" id="title" placeholder="Titel">
+                <input type="text" name="author" id="author" placeholder="Författare">
+                <input type="text" name="category" id="category" placeholder="Kategori">
+                <textarea name="content" id="content" placeholder="Innehåll"></textarea>
+            </form>
+            <div class="blog-functions-footer">
+                <button id="backButton" class="material-icons">arrow_back</button>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <%- include('partials/footer.ejs') %>
+    </div>
+</body>
+</html>

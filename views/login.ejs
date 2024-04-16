@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inlogg</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="content">
+        <div class="card" id="card-for-login">
+            <form class="login-form" action="" method="post">
+                <div class="username">
+                    <div class="username-input">
+                        <input type="text" name="username" id="username" placeholder="Användarnamn">
+                    </div>
+                    <div class="username-icon">
+                        <i class="material-icons">person</i>
+                    </div>
+                </div>
+                <div class="password">
+                    <div class="password-input">
+                        <input type="password" name="password" id="password" placeholder="Lösenord">
+                    </div>
+                    <div class="password-icon">
+                        <i class="material-icons">lock</i>
+                    </div>
+                </div>
+                <div class="login">
+                    <button type="submit">Logga in</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="footer">
+        <%- include('partials/footer.ejs') %>
+    </div>
+</body>
+</html>
