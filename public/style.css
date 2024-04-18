@@ -24,7 +24,14 @@ input:focus, textarea:focus, select:focus, button:focus {
   background-color: #202124;
   border: 1px solid #5F6368;
   border-radius: 20px;
-  overflow: hidden;
+  overflow: hidden;;
+}
+
+@media screen and (max-height: 800px) {
+  .card {
+    height: 650px;
+    overflow-y: scroll;
+  }
 }
 
 .show-more-button {
@@ -43,6 +50,12 @@ input:focus, textarea:focus, select:focus, button:focus {
   color: #FFFFFF;
 }
 
+@media screen and (max-height: 800px) {
+  #card-for-create-blog, #card-for-edit-blog, #card-for-blog {
+    height: 600px;
+    overflow-y: scroll;
+  }
+}
 .author-create-blog button {
   display: flex;
   justify-content: center;
@@ -160,6 +173,7 @@ input:focus, textarea:focus, select:focus, button:focus {
   padding: 10px;
   border-radius: 20px;
   margin-top: 13px;
+  overflow: hidden;
 }
 
 .blog h1{
