@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blogg</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="content">
+        <div class="card" id="card-for-blog">
+            <div class="blog-header">
+                <h1><%= blog.title %></h1>
+                <% if (isAdmin) { %>
+                    <div class="blog-functions">
+                        <button class="material-icons" onclick="location.href='/blogg/<%= blog.id %>/redigera'">edit</button>
+                        <form action="/blogg/<%= blog.id %>/radera" method="post">
+                            <button class="material-icons delete-button" type="submit" onclick="if (!confirm('Vill du radera blogginlägget?')) return false">delete</button>
+                        </form>
+                    </div>
+                <% } %>
+            </div>
+            <h2>Författare: <%= blog.author %></h2>
+            <pre class="blog-text"><%= blog.contents %></pre>
+            <div class="blog-information-footer">
+                <h3><%= new Date(blog.timestamp).toLocaleString(undefined, { year: 'numeric', month: 'numeric', day: 'numeric', hour: 'numeric', minute: 'numeric' }) %></h3>
+                <h3>Kategori: <%= blog.category %></h3>
+            </div>
+
+            <div class="blog-functions-footer">
+                <button id="backButton" onclick="location.href='/bloggar'" class="material-icons">arrow_back</button>
+                <button id="shareButton" class="material-icons" onclick="
+                    var currentUrl = window.location.href; // Hämta den aktuella URL:en
+
+                    // Skapa ett osynligt textfält för att kunna kopiera till urklipp
+                    var textField = document.createElement('textarea');
+                    textField.innerText = currentUrl;
+                    document.body.appendChild(textField);
+
+                    // Markera och kopiera texten
+                    textField.select();
+                    document.execCommand('copy');
+
+                    // Ta bort det temporära textfältet
+                    document.body.removeChild(textField);
+
+                    // Meddela användaren att adressen har kopierats
+                    alert('Webbadressen har kopierats till urklipp.');
+                ">share</button>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <%- include('partials/footer.ejs') %>
+    </div>
+</body>
+</html>

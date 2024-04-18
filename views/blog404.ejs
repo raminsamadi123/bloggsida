@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <title>Blogg hittades inte</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+<body>
+    <div class="content">
+        <div class="card" id="card-for-error-blog">
+            <h1 class="error">Blogg hittades inte 🤖</h1>
+            <div class="blog-functions-footer error">
+                <button id="backButton" onclick="location.href='/bloggar/'" class="material-icons">arrow_back</button>
+            </div>
+        </div>
+        
+    </div>
+    <div class="footer">
+        <%- include('partials/footer.ejs') %>
+    </div>
+</body>
+</html>

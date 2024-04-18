@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skapa</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="content">
+        <div class="card" id="card-for-create-blog">
+            <div class="header-create-blog">
+                <div class="title-create-blog">
+                    <h1>Skapa Blogg</h1>
+                </div>
+                <div class="author-create-blog">
+                    <button tabindex="5" type="submit" onclick="if (!confirm('Vill du publicera blogginlägget?')) return false; document.getElementById('blog-form').submit()">Publicera</button>
+                </div>
+            </div>
+
+            <form class="create-blog-form" action="/bloggar" method="post" id="blog-form">
+                <input tabindex="1" type="text" id="titleInput" name="title" placeholder="Titel">
+                <input tabindex="2" type="text" id="authorInput" name="author" placeholder="Författare">
+                <input tabindex="3" type="text" id="categoryInput" name="category" placeholder="Kategori">
+
+                <textarea tabindex="4" placeholder="Innehåll" name="contents" id="contentsInput" cols="30" rows="10"></textarea>
+                <% if ((errors && errors.title) || (errors && errors.author) || (errors && errors.category) || (errors && errors.contents)) { %>
+                    <script>alert("Alla fält måste vara fyllda")</script>
+                <% } %>              
+            </form>
+            <div class="blog-functions-footer">
+                <button tabindex="6" id="backButton" class="material-icons" onclick="location.href='/bloggar'">arrow_back</button>
+            </div>
+        </div>
+    </div>      
+    <div class="footer">
+        <%- include('partials/footer.ejs') %>
+    </div>
+</body>
+</html>

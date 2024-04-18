@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blogg</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="content">
+        <div class="card">
+            <div class="menu" id="menu-for-categories">
+                <div class="menu-header">
+                    <button class="material-icons" onclick="document.getElementById('menu-for-categories').style.visibility = 'hidden';" id="menu">menu</button>
+                    <h2>Kategorier</h2>
+                </div>
+                <div class="categories">
+                    <% const uniqueCategories = new Set(); %>
+                    <% blogs.forEach(blog => { %>
+                        <% if (!uniqueCategories.has(blog.category)) { %>
+                            <% uniqueCategories.add(blog.category); %>
+                            <button onclick="location.href='/bloggar?searchTerm=<%= blog.category %>'"><%= blog.category %></button>
+                        <% } %>
+                    <% }); %>
+                </div>                
+            </div>
+            <div class="header-row">
+                <div class="left-panel">
+                    <button class="material-icons" onclick="document.getElementById('menu-for-categories').style.visibility = 'visible';" id="menu">menu</button>
+                    <button class="home-button" onclick="location.href='/bloggar'">Bloggar</button>
+                </div>
+                <div class="right-panel">
+                    <% if (isAdmin) { %>
+                        <button class="create-blog" onclick="location.href='/skapa'">Skapa Blogg</button>
+                        <button class="material-icons" onclick="if (!confirm('Vill du logga ut?')) return false; location.href='/logga-ut'" id="profile">logout</button>
+                    <% } else { %>
+                        <button class="material-icons" onclick="location.href='/inlogg'" id="profile">person</button>
+                    <% } %>                
+                </div>
+            </div>
+            <div class="search-content">
+                <form class="search" action="/bloggar" method="get">
+                    <div class="search-icon">
+                        <i class="material-icons">search</i>
+                    </div>
+                    <div class="input-field">
+                        <input type="text" id="searchInput" class="searchInput-input" maxlength="2048" name="searchTerm" autocapitalize="off" autocomplete="off" title="Search" role="combobox" placeholder="Sök Bloggar">
+                    </div>
+                    <div class="search-button">
+                        <button class="material-icons">search</button>
+                    </div>
+                </form>
+            </div>
+            <div class="blog-cards">
+                <ul>
+                    <% blogs.forEach(blog => { %>
+                        <li class="blog">
+                            <h1><%= blog.title %></h2>
+                            <h2>Författare: <%= blog.author %></h3>
+                            <p><%= blog.contents.substring(0, 200) %>...</p>
+                            <div class="blog-information-footer">
+                                <h2><%= new Date(blog.timestamp).toLocaleString(undefined, { year: 'numeric', month: 'numeric', day: 'numeric', hour: 'numeric', minute: 'numeric' }) %></h2>
+                                <h2>Kategori: <%= blog.category %></h2>
+                            </div>
+                            <button class="show-more-button" onclick="location.href='/blogg/<%= blog.id %>'">Visa mer</button>
+                        </li>
+                    <% }); %>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <%- include('partials/footer.ejs') %>
+    </div>
+</body>
+</html>
