@@ -201,7 +201,7 @@ input:focus, textarea:focus, select:focus, button:focus {
   margin-right: 20px;
 }
 
-#menu, #profile, #menu-category {
+#menu, #profile, #menu-category, #menu-for-category {
   display: flex;
   justify-content: center;
   align-items: center;

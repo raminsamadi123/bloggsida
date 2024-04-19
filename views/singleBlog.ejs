@@ -24,7 +24,8 @@
             <h2>Författare: <%= blog.author %></h2>
             <pre class="blog-text"><%= blog.contents %></pre>
             <div class="blog-information-footer">
-                <h3><%= new Date(blog.timestamp).toLocaleString(undefined, { year: 'numeric', month: 'numeric', day: 'numeric', hour: 'numeric', minute: 'numeric' }) %></h3>
+                <% const timestamp = new Date(blog.timestamp); %>
+                <h3><%= timestamp.toISOString().split('T')[0] %> <%= ('0' + timestamp.getHours()).slice(-2) %>:<%= ('0' + timestamp.getMinutes()).slice(-2) %></h3>
                 <h3>Kategori: <%= blog.category %></h3>
             </div>
 

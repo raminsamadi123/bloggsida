@@ -12,7 +12,7 @@
         <div class="card">
             <div class="menu" id="menu-for-categories">
                 <div class="menu-header">
-                    <button class="material-icons" onclick="document.getElementById('menu-for-categories').style.visibility = 'hidden';" id="menu">menu</button>
+                    <button class="material-icons" onclick="document.getElementById('menu-for-categories').style.visibility = 'hidden';" id="menu-for-category">menu</button>
                     <h2>Kategorier</h2>
                 </div>
                 <div class="categories">
@@ -60,7 +60,8 @@
                             <h2>Författare: <%= blog.author %></h3>
                             <p><%= blog.contents.substring(0, 200) %>...</p>
                             <div class="blog-information-footer">
-                                <h2><%= new Date(blog.timestamp).toLocaleString(undefined, { year: 'numeric', month: 'numeric', day: 'numeric', hour: 'numeric', minute: 'numeric' }) %></h2>
+                                <% const timestamp = new Date(blog.timestamp); %>
+                                <h2><%= timestamp.toISOString().split('T')[0] %> <%= ('0' + timestamp.getHours()).slice(-2) %>:<%= ('0' + timestamp.getMinutes()).slice(-2) %></h2>
                                 <h2>Kategori: <%= blog.category %></h2>
                             </div>
                             <button class="show-more-button" onclick="location.href='/blogg/<%= blog.id %>'">Visa mer</button>
