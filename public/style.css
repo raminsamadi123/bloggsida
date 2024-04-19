@@ -313,7 +313,7 @@ footer {
   border-top: none;
   border-left: none;
   width: 40%;
-  height: 89%;
+  height: inherit;
   border-radius: 20px;
 }
 
@@ -550,9 +550,7 @@ footer {
     width: 94.5%;
     position: absolute;
     border: none;
-    height: 200px;
-    border-bottom-left-radius: 0px;
-    border-bottom-right-radius: 0px;
+    height: inherit;
   }
 
   menu-header {
@@ -561,7 +559,7 @@ footer {
 
   .categories {
     position: absolute;
-    height: 100%;
+    height: 400px;
     overflow-x: hidden;
     overflow-y: scroll;
     top: 80px;

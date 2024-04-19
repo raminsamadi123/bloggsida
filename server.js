@@ -1,25 +1,32 @@
+// Importera nödvändiga moduler och funktioner från olika filer och bibliotek
 import express, { response } from "express";
 import session from 'express-session';
 import { getBlogs, getBlog, addBlog, deleteBlog, getUserStatus, updateUserStatus, updateBlog } from "./database.js";
 import { check, validationResult } from 'express-validator';
+
+// Skapa en Express-app och ange porten att lyssna på
 const app = express();
 const port = 8080;
 
+// Ange att vi använder "ejs" som vy-motor och aktivera användningen av urlencoded för att tolka inkommande data från formulär
 app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: true }));
 
+// Konfigurera session
 app.use(session({
-    secret: 'your-secret-key',
+    secret: 'nyckel',
     resave: false,
     saveUninitialized: true
 }));
 
+// Middleware för att kontrollera användarstatus och sätta isAdmin-flaggan i sessionen
 app.use((req, res, next) => {
     const userStatus = getUserStatus();
     req.session.isAdmin = userStatus.admin || false;
     next();
 });
 
+// Hantera GET-förfrågningar för rotvägen ("/") och rendera indexsidan med tillhörande bloggar och isAdmin-flagga
 app.get('/', (req, res) => {
     const blogs = getBlogs();
     res.render("index.ejs", {
@@ -28,6 +35,7 @@ app.get('/', (req, res) => {
     });
 });
 
+// Hantera GET-förfrågningar för "/bloggar" och rendera indexsidan med filtrerade bloggar baserat på söktermen och isAdmin-flaggan
 app.get("/bloggar", (req, res) => {
     const searchTerm = req.query.searchTerm;
     const blogs = getBlogs(searchTerm);
@@ -37,6 +45,7 @@ app.get("/bloggar", (req, res) => {
     });
 });
 
+// Hantera GET-förfrågningar för att redigera en specifik blogg baserat på ID
 app.get("/blogg/:id/redigera", (req, res) => {
     const id = +req.params.id;
     const blog = getBlog(id);
@@ -46,11 +55,11 @@ app.get("/blogg/:id/redigera", (req, res) => {
 
     res.render("editBlog.ejs", {
         errors: '',
-        blog,
-        isAdmin: req.session.isAdmin
+        blog
     });
 });
 
+// Hantera GET-förfrågningar för att visa en specifik blogg baserat på ID
 app.get("/blogg/:id", (req, res) => {
     const id = +req.params.id;
     const blog = getBlog(id);
@@ -66,10 +75,12 @@ app.get("/blogg/:id", (req, res) => {
     });
 });
 
+// Hantera GET-förfrågningar för att skapa en ny blogg
 app.get("/skapa", (req, res) => {
     res.render("createBlog.ejs", { errors : '' });
 });
 
+// Hantera POST-förfrågningar för att lägga till en ny blogg
 app.post("/bloggar", 
     [
         check('title').notEmpty().withMessage('Titel krävs'),
@@ -86,11 +97,12 @@ app.post("/bloggar",
     res.redirect("/bloggar");
 });
 
-
+// Hantera GET-förfrågningar för inloggningssidan
 app.get('/inlogg', (req, res) => {
     res.render("login.ejs");
 });
 
+// Hantera POST-förfrågningar för att logga in användare
 app.post('/logga-in', (req, res) => {
     const username = req.body.username;
     const password = req.body.password;
@@ -106,6 +118,7 @@ app.post('/logga-in', (req, res) => {
     }
 });
 
+// Hantera GET-förfrågningar för att logga ut användare
 app.get("/logga-ut", (req, res) => {
     req.session.isAdmin = false;
     const userStatus = getUserStatus();
@@ -114,12 +127,14 @@ app.get("/logga-ut", (req, res) => {
     res.redirect("/bloggar");
 });
 
+// Hantera POST-förfrågningar för att radera en specifik blogg baserat på ID
 app.post("/blogg/:id/radera", (req, res) => {
     const id = +req.params.id;
     deleteBlog(id);
     res.redirect("/bloggar");
 });
 
+// Hantera POST-förfrågningar för att uppdatera en specifik blogg baserat på ID
 app.post("/blogg/:id/redigera", 
     [
         check('title').notEmpty().withMessage('Titel krävs'),
@@ -149,8 +164,10 @@ app.post("/blogg/:id/redigera",
     }
 );
 
+// Ange att statiska filer kan serveras från mappen 'public'
 app.use(express.static("public"));
 
+// Lyssna på den angivna porten och skriv ut ett meddelande när servern är igång
 app.listen(port, () => {
-    console.log(`Example app is listening at http://localhost:${port}`);
+    console.log(`Exempelappen lyssnar på http://localhost:${port}`);
 });
