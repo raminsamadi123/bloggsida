@@ -423,6 +423,7 @@ footer {
   display: flex;
   flex-direction: column;
   position: absolute;
+  border: 1px solid #5F6368;
   border-top: none;
   border-left: none;
   width: 40%;
@@ -432,13 +433,11 @@ footer {
 
 .dark-mode .menu {
   background-color: #202124;
-  border: 1px solid #5F6368;
   color: #FFFFFF;
 }
 
 .light-mode .menu {
   background-color: #F5F5F5;
-  border: 1px solid #5F6368;
   color: #303134;
 }
 
@@ -466,19 +465,19 @@ footer {
   align-items: center;
   border-top-right-radius: 100vw;
   border-bottom-right-radius: 100vw;
+  border: 1px solid #5F6368;
+  border-left: none;
   font-size: 100%;
   cursor: pointer;
 }
 
 .dark-mode .categories button {
   background-color: #303134;
-  border: 1px solid #5F6368;
   color: #FFFFFF;
 }
 
 .light-mode .categories button {
   background-color: #FFFFFF;
-  border: 1px solid #5F6368;
   color: #303134;
 }
 
@@ -767,6 +766,7 @@ footer {
   }
 
   .categories button {
+    border-left: 1px solid #5F6368;
     height: 40px;
     font-size: 16px;
     border-radius: 100vw;
