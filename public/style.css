@@ -3,17 +3,32 @@ html, body {
   height: 100%;
   margin: 0;
   font-family: sans-serif;
-  background-color: #171717;
   flex-direction: column;
   overflow: hidden;
+}
+
+.light-mode html, .light-mode body {
+  background-color: #f5f5f5;
+}
+
+.dark-mode html, .dark-mode body {
+  background-color: #171717;
 }
 
 input:focus, textarea:focus, select:focus, button:focus {
   outline: 2px solid #a8c7fa;
 }
 
+.light-mode input:focus, .light-mode textarea:focus, .light-mode select:focus, .light-mode button:focus {
+  outline: 2px solid #4285F4;
+}
+
 .content {
   padding: 10px;
+}
+
+.dark-mode .card {
+  background-color: #202124;
 }
 
 .card {
@@ -21,7 +36,6 @@ input:focus, textarea:focus, select:focus, button:focus {
   flex-direction: column;
   max-width: 100%;
   height: 850px;
-  background-color: #202124;
   border: 1px solid #5F6368;
   border-radius: 20px;
   overflow: hidden;;
@@ -34,20 +48,42 @@ input:focus, textarea:focus, select:focus, button:focus {
   }
 }
 
-.show-more-button {
+.dark-mode .show-more-button {
+  color: #FFFFFF;
   background-color: #303134;
+}
+
+.light-mode .show-more-button {
+  color: #000000;
+}
+
+.show-more-button {
   border: 1px solid #5F6368;
   height: 40px;
   width: auto;
   border-radius: 20px;
   cursor: pointer;
-  color: #FFFFFF;
   font-size: 18px;
+}
+
+.light-mode .show-more-button {
+  background-color: #FFFFFF;
+}
+
+.light-mode li {
+  color: #000000;
 }
 
 #card-for-create-blog, #card-for-edit-blog {
   padding: 20px;
+}
+
+.dark-mode #card-for-create-blog, .dark-mode #card-for-edit-blog {
   color: #FFFFFF;
+}
+
+.light-mode #card-for-create-blog, .light-mode #card-for-edit-blog {
+  color: #000000;
 }
 
 @media screen and (max-height: 800px) {
@@ -66,8 +102,16 @@ input:focus, textarea:focus, select:focus, button:focus {
   border: 1px solid #5F6368;
   border-radius: 100vw;
   cursor: pointer;
+}
+
+.dark-mode .author-create-blog button {
   color: #FFFFFF;
   background-color: #303134;
+}
+
+.light-mode .author-create-blog button {
+  color: #000000;
+  background-color: #FFFFFF;
 }
 
 .header-create-blog, .header-edit-blog {
@@ -94,8 +138,16 @@ input:focus, textarea:focus, select:focus, button:focus {
   border: 1px solid #5F6368;
   border-radius: 100vw;
   cursor: pointer;
+}
+
+.dark-mode .author-save-blog button {
   color: #FFFFFF;
   background-color: #303134;
+}
+
+.light-mode .author-save-blog button {
+  color: #000000;
+  background-color: #FFFFFF;
 }
 
 .create-blog-form input, .edit-blog-form input {
@@ -103,7 +155,6 @@ input:focus, textarea:focus, select:focus, button:focus {
   border-radius: 100vw;
   background: none;
   padding: 10px;
-  color: #FFFFFF;
   font-size: 18px;
   border: 1px solid #5F6368;
 }
@@ -112,7 +163,6 @@ input:focus, textarea:focus, select:focus, button:focus {
   border-radius: 10px;
   background: none;
   padding: 10px;
-  color: #FFFFFF;
   border-radius: 20px;
   font-size: 18px;
   border: 1px solid #5F6368;
@@ -121,9 +171,24 @@ input:focus, textarea:focus, select:focus, button:focus {
   resize: none;
 }
 
+.dark-mode .create-blog-form input, .dark-mode .edit-blog-form input, .dark-mode .create-blog-form textarea, .dark-mode .edit-blog-form textarea {
+  color: #FFFFFF;
+}
+
+.light-mode .create-blog-form input, .light-mode .edit-blog-form input, .light-mode .create-blog-form textarea, .light-mode .edit-blog-form textarea {
+  color: #000000;
+}
+
 #card-for-blog {
   padding: 20px;
+}
+
+.dark-mode #card-for-blog {
   color: #FFFFFF;
+}
+
+.light-mode #card-for-blog {
+  color: #000000;
 }
 
 #card-for-blog button {
@@ -135,8 +200,16 @@ input:focus, textarea:focus, select:focus, button:focus {
   border: 1px solid #5F6368;
   border-radius: 100vw;
   cursor: pointer;
+}
+
+.dark-mode #card-for-blog button {
   color: #FFFFFF;
   background-color: #303134;
+}
+
+.light-mode #card-for-blog button {
+  color: #000000;
+  background-color: #FFFFFF;
 }
 
 .blog-header {
@@ -205,33 +278,58 @@ input:focus, textarea:focus, select:focus, button:focus {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #303134;
-  border: 1px solid #5F6368;
   height: 40px;
   width: 40px;
   border-radius: 100vw;
   cursor: pointer;
+}
+
+.dark-mode #menu, .dark-mode #profile, .dark-mode #menu-category, .dark-mode #menu-for-category {
+  background-color: #303134;
+  border: 1px solid #5F6368;
   color: #FFFFFF;
 }
 
-.create-blog {
-  background-color: #303134;
+.light-mode #menu, .light-mode #profile, .light-mode #menu-category, .light-mode #menu-for-category {
+  background-color: #FFFFFF;
   border: 1px solid #5F6368;
+  color: #303134;
+}
+
+.create-blog {
   height: 40px;
   width: auto;
   font-size: 100%;
   border-radius: 20px;
   cursor: pointer;
-  color: #FFFFFF;
   padding: 0 10px;
+}
+
+.dark-mode .create-blog {
+  background-color: #303134;
+  border: 1px solid #5F6368;
+  color: #FFFFFF;
+}
+
+.light-mode .create-blog {
+  background-color: #FFFFFF;
+  border: 1px solid #5F6368;
+  color: #303134;
 }
 
 .home-button {
   background: none;
   border: none;
-  color: #FFFFFF;
   font-size: 24px;
   cursor: pointer;
+}
+
+.dark-mode .home-button {
+  color: #FFFFFF;
+}
+
+.light-mode .home-button {
+  color: #303134;
 }
 
 .blog-text {
@@ -263,14 +361,23 @@ input:focus, textarea:focus, select:focus, button:focus {
 footer {
   display: flex;
   font-size: 18px;
-  color: #FFFFFF;
   justify-content: center;
   align-items: center;
-  background-color: #202124;
-  border-top: 1px solid #5F6368;
   bottom: 0;
   height: 50px;
   width: 100vw;
+}
+
+.dark-mode footer {
+  color: #FFFFFF;
+  background-color: #202124;
+  border-top: 1px solid #5F6368;
+}
+
+.light-mode footer {
+  color: #303134;
+  background-color: #FFFFFF;
+  border-top: 1px solid #5F6368;
 }
 
 .blog-information-footer {
@@ -295,8 +402,16 @@ footer {
   border: 1px solid #5F6368;
   border-radius: 100vw;
   cursor: pointer;
-  color: #FFFFFF;
+}
+
+.dark-mode .blog-functions-footer button {
   background-color: #303134;
+  color: #FFFFFF;
+}
+
+.light-mode .blog-functions-footer button {
+  background-color: #FFFFFF;
+  color: #303134;
 }
 
 /* 
@@ -305,16 +420,26 @@ footer {
 */
 .menu {
   visibility: hidden;
-  background-color: #202124;
   display: flex;
   flex-direction: column;
   position: absolute;
-  border: 1px solid #5F6368;
   border-top: none;
   border-left: none;
   width: 40%;
   height: inherit;
   border-radius: 20px;
+}
+
+.dark-mode .menu {
+  background-color: #202124;
+  border: 1px solid #5F6368;
+  color: #FFFFFF;
+}
+
+.light-mode .menu {
+  background-color: #F5F5F5;
+  border: 1px solid #5F6368;
+  color: #303134;
 }
 
 .menu-header {
@@ -323,6 +448,9 @@ footer {
   align-items: center;
   padding-left: 10px;
   gap: 20px;
+}
+
+.dark-mode .menu-header {
   color: #FFFFFF;
 }
 
@@ -336,13 +464,22 @@ footer {
   height: 50px;
   display: flex;
   align-items: center;
-  color: #FFFFFF;
   border-top-right-radius: 100vw;
   border-bottom-right-radius: 100vw;
-  border: 1px solid #5F6368;
-  background-color: #303134;
   font-size: 100%;
   cursor: pointer;
+}
+
+.dark-mode .categories button {
+  background-color: #303134;
+  border: 1px solid #5F6368;
+  color: #FFFFFF;
+}
+
+.light-mode .categories button {
+  background-color: #FFFFFF;
+  border: 1px solid #5F6368;
+  color: #303134;
 }
 
 /* 
@@ -370,7 +507,14 @@ footer {
   border-top-left-radius: 20px;
   border-bottom-left-radius: 20px;
   align-items: center;
+}
+
+.dark-mode .search-icon {
   color: rgba(255, 255, 255, 0.5)
+}
+
+.light-mode .search-icon {
+  color: rgba(0, 0, 0, 0.5)
 }
 
 .input-field {
@@ -383,7 +527,6 @@ footer {
   border: 1px solid #5F6368;
   background: none;
   padding: 0px;
-  color: white;
   font-size: 18px;
   border-left: none;
   border-radius: 0px;
@@ -396,16 +539,25 @@ footer {
 
 .search-button button {
   display: flex;
-  border: 1px solid #5F6368;
   height: 100%;
   width: 60px;
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
-  color: #FFFFFF;
-  background-color: #303134;
   align-items: center;
   justify-content: center;
   cursor: pointer;
+}
+
+.dark-mode .search-button button {
+  border: 1px solid #5F6368;
+  color: #FFFFFF;
+  background-color: #303134;
+}
+
+.light-mode .search-button button {
+  border: 1px solid #5F6368;
+  color: #000000;
+  background-color: #FFFFFF;
 }
 
 /* 
@@ -468,12 +620,21 @@ footer {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #FFFFFF;
-  border: 1px solid #5F6368;
   width: 50px;
-  border-left: none;
   border-top-right-radius: 100vw;
   border-bottom-right-radius: 100vw;
+}
+
+.dark-mode .username-icon, .dark-mode .password-icon {
+  color: #FFFFFF;
+  border: 1px solid #5F6368;
+  border-left: none;
+}
+
+.light-mode .username-icon, .light-mode .password-icon {
+  color: #000000;
+  border: 1px solid #5F6368;
+  border-left: none;
 }
 
 .login {
@@ -484,12 +645,36 @@ footer {
 .login button {
   width: 100%;
   height: 42px;
-  border: 1px solid #5F6368;
   border-radius: 100vw;
-  background-color: #303134;
-  color: #FFFFFF;
   font-size: 18px;
   cursor: pointer;
+}
+
+.dark-mode .login button {
+  border: 1px solid #5F6368;
+  color: #FFFFFF;
+  background-color: #303134;
+}
+
+.light-mode .login button {
+  border: 1px solid #5F6368;
+  color: #000000;
+  background-color: #FFFFFF;
+}
+
+/* Stilar specifika för light mode */
+.light-mode {
+  background-color: #FFFFFF;
+  color: #171717;
+}
+
+.light-mode .card {
+  background-color: #F5F5F5;
+}
+
+.dark-mode {
+  background-color: #171717;
+  color: #FFFFFF;
 }
 
 /* 
@@ -498,7 +683,7 @@ footer {
 */
 @media screen and (max-width: 768px) {
   .card {
-    height: 600px;
+    height: 73vh;
   }
 
   .right-panel {
@@ -553,6 +738,10 @@ footer {
     height: inherit;
   }
 
+  .dark-mode .menu, .light-mode .menu {
+    border: none;
+  }
+
   menu-header {
     position: fixed;
   }
@@ -567,7 +756,14 @@ footer {
     width: 100%;
     border: none;
     border-top: none;
+  }
+
+  .dark-mode .categories {
     background-color: #202124;
+  }
+
+  .light-mode .categories {
+    background-color: #f5f5f5;
   }
 
   .categories button {
@@ -575,4 +771,21 @@ footer {
     font-size: 16px;
     border-radius: 100vw;
   }
+
+  .left-panel {
+    gap: 0px;
+    margin-left: 2%;
+  }
+
+  #card-for-blog, #card-for-create-blog, #card-for-edit-blog {
+    height: 68vh;
+  }
+}
+
+.dark-mode input {
+  color: #FFFFFF;
+}
+
+.light-mode input {
+  color: #000000;
 }
