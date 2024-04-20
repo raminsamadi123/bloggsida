@@ -7,12 +7,20 @@ html, body {
   overflow: hidden;
 }
 
+button, input::placeholder, textarea::placeholder {
+  user-select: none;
+}
+
 .light-mode html, .light-mode body {
   background-color: #f5f5f5;
 }
 
 .dark-mode html, .dark-mode body {
   background-color: #171717;
+}
+
+#menu-for-category {
+  margin-bottom: 8px;
 }
 
 input:focus, textarea:focus, select:focus, button:focus {
@@ -353,6 +361,7 @@ input:focus, textarea:focus, select:focus, button:focus {
   █▀ ▀▄▀ ▀▄▀  █  █▄▄ █▀▄
 */
 .footer {
+  user-select: none;
   display: flex;
   height: 100%;
   align-items: flex-end;
@@ -445,12 +454,16 @@ footer {
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding-left: 10px;
-  gap: 20px;
+  padding-left: 20px;
+  gap: 10px;
 }
 
 .dark-mode .menu-header {
   color: #FFFFFF;
+}
+
+#category-header {
+  font-weight: 500;
 }
 
 .categories {
@@ -486,6 +499,7 @@ footer {
   ▄██ █▄▄ █▀█ █▀▄ ▀▄▄ █ █
 */
 .search {
+  user-select: none;
   margin-top: 10px;
   display: flex;
   flex-direction: row;
@@ -568,6 +582,7 @@ footer {
   justify-content: center;
   align-items: center;
   color: #f38ba8;
+  user-select: none;
 }
 
 /* 
@@ -741,8 +756,8 @@ footer {
     border: none;
   }
 
-  menu-header {
-    position: fixed;
+  .menu-header {
+    margin-left: -12px;
   }
 
   .categories {

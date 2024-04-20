@@ -13,7 +13,7 @@
             <div class="menu" id="menu-for-categories">
                 <div class="menu-header">
                     <button class="material-icons" onclick="document.getElementById('menu-for-categories').style.visibility = 'hidden';" id="menu-for-category">menu</button>
-                    <h2>Kategorier</h2>
+                    <h2 id="category-header">Kategorier</h2>
                 </div>
                 <div class="categories">
                     <% const uniqueCategories = new Set(); %>
@@ -75,7 +75,6 @@
         <%- include('partials/footer.ejs') %>
     </div>
     <script>
-        // Check if the user prefers light mode
         if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
           document.documentElement.classList.add('light-mode');
         } else {
