@@ -804,3 +804,11 @@ footer {
 .light-mode input {
   color: #000000;
 }
+
+.search input:focus {
+  outline: none;
+}
+
+#card-for-login input:focus {
+  outline: none;
+}
