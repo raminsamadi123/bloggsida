@@ -1,5 +1,5 @@
 // Importera nödvändiga moduler och funktioner från olika filer och bibliotek
-import express, { response } from "express";
+import express from "express";
 import session from 'express-session';
 import { getBlogs, getBlog, addBlog, deleteBlog, getUserStatus, updateUserStatus, updateBlog } from "./database.js";
 import { check, validationResult } from 'express-validator';
