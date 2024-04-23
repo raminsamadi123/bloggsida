@@ -3,6 +3,7 @@ import express, { response } from "express";
 import session from 'express-session';
 import { getBlogs, getBlog, addBlog, deleteBlog, getUserStatus, updateUserStatus, updateBlog } from "./database.js";
 import { check, validationResult } from 'express-validator';
+import bodyParser from 'body-parser';
 
 // Skapa en Express-app och ange porten att lyssna på
 const app = express();
