@@ -11,7 +11,7 @@ const port = 8080;
 
 // Ange att vi använder "ejs" som vy-motor och aktivera användningen av urlencoded för att tolka inkommande data från formulär
 app.set("view engine", "ejs");
-app.use(express.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // Konfigurera session
 app.use(session({
