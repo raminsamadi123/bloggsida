@@ -31,30 +31,12 @@
 
             <div class="blog-functions-footer">
                 <button id="backButton" onclick="location.href='/bloggar'" class="material-icons">arrow_back</button>
-                <button id="shareButton" class="material-icons" onclick="copyToClipboard()">share</button>
+                <button id="shareButton" class="material-icons" onclick=<%= copyToClipboard() %>>share</button>
             </div>
         </div>
     </div>
     <div class="footer">
         <%- include('partials/footer.ejs') %>
     </div>
-    <script>
-        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
-          document.documentElement.classList.add('light-mode');
-        } else {
-          document.documentElement.classList.add('dark-mode');
-        };
-
-        function copyToClipboard() {
-            var currentUrl = window.location.href;
-            var textField = document.createElement('textarea');
-            textField.innerText = currentUrl;
-            document.body.appendChild(textField);
-            textField.select();
-            document.execCommand('copy');
-            document.body.removeChild(textField);
-            alert('Webbadressen har kopierats till urklipp.');
-        }
-    </script>
 </body>
 </html>
