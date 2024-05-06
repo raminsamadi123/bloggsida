@@ -60,23 +60,6 @@ app.get("/blogg/:id/redigera", (req, res) => {
     });
 });
 
-// Kopieringsfunktion för att kopiera aktuell URL till urklipp
-function copyToClipboard() {
-    var currentUrl = window.location.href;
-    var textField = document.createElement('textarea');
-    textField.innerText = currentUrl;
-    document.body.appendChild(textField);
-    textField.select();
-    document.execCommand('copy');
-    document.body.removeChild(textField);
-    alert('Webbadressen har kopierats till urklipp.');
-}
-
-app.use((req, res, next) => {
-    res.locals.copyToClipboard = copyToClipboard;
-    next();
-});
-
 // Hantera GET-förfrågningar för att visa en specifik blogg baserat på ID
 app.get("/blogg/:id", (req, res) => {
     const id = +req.params.id;
