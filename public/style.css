@@ -24,7 +24,7 @@ input:focus, textarea:focus, select:focus, button:focus {
   background-color: #202124;
   border: 1px solid #5F6368;
   border-radius: 20px;
-  overflow: hidden;;
+  overflow: hidden;
 }
 
 @media screen and (max-height: 800px) {
